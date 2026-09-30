@@ -1,0 +1,42 @@
+gateway:
+  host: 0.0.0.0
+  port: 8080
+models:
+  claude-3:
+    model: claude-3
+    provider: gui_anthropic_1
+  enterprise-default:
+    model: mock-gpt-4o
+    provider: mock_primary
+  enterprise-reasoning-anthropic:
+    model: mock-claude-3-5
+    provider: mock_secondary
+  enterprise-reasoning-openai:
+    model: mock-gpt-4o
+    provider: mock_primary
+  gpt-4:
+    model: gpt-4
+    provider: gui_openai_0
+  test:
+    model: test
+    provider: gui_openai_2
+providers:
+  gui_anthropic_1:
+    api_key: '***'
+    type: anthropic
+  gui_openai_0:
+    api_key: '***'
+    type: openai
+  gui_openai_2:
+    api_key: asdasd
+    type: openai
+  mock_primary:
+    type: mock
+  mock_secondary:
+    type: mock
+routing:
+  enterprise-reasoning:
+    providers:
+    - mock_secondary
+    - mock_primary
+    strategy: fallback

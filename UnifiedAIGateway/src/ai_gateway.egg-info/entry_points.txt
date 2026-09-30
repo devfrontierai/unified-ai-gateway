@@ -1,0 +1,2 @@
+[console_scripts]
+ai-gateway = ai_gateway.server.cli:main
