@@ -43,21 +43,30 @@ def build_provider_registry(config: AppConfiguration) -> ProviderRegistry:
                 raise ValueError(f"Missing API key for OpenAI provider '{name}'")
             kwargs = {"api_key": api_key}
             if p_config.base_url:
-                kwargs["base_url"] = p_config.base_url
+                url = p_config.base_url
+                if not url.startswith("http://") and not url.startswith("https://"):
+                    url = "https://" + url
+                kwargs["base_url"] = url
             registry.register(name, OpenAIProvider(**kwargs))
         elif p_config.type == "anthropic":
             if not api_key:
                 raise ValueError(f"Missing API key for Anthropic provider '{name}'")
             kwargs = {"api_key": api_key}
             if p_config.base_url:
-                kwargs["base_url"] = p_config.base_url
+                url = p_config.base_url
+                if not url.startswith("http://") and not url.startswith("https://"):
+                    url = "https://" + url
+                kwargs["base_url"] = url
             registry.register(name, AnthropicProvider(**kwargs))
         elif p_config.type == "gemini":
             if not api_key:
                 raise ValueError(f"Missing API key for Gemini provider '{name}'")
             kwargs = {"api_key": api_key}
             if p_config.base_url:
-                kwargs["base_url"] = p_config.base_url
+                url = p_config.base_url
+                if not url.startswith("http://") and not url.startswith("https://"):
+                    url = "https://" + url
+                kwargs["base_url"] = url
             registry.register(name, GeminiProvider(**kwargs))
         else:
             raise ValueError(f"Unknown provider type: {p_config.type}")
