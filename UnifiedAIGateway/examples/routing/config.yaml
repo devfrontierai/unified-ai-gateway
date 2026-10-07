@@ -1,0 +1,15 @@
+gateway:
+  host: 0.0.0.0
+  port: 8080
+providers:
+  openai:
+    type: mock
+  anthropic:
+    type: mock
+routing:
+  enterprise-reasoning:
+    strategy: weighted
+    providers:
+      - openai
+      - anthropic
+    weights: [0.7, 0.3]

@@ -1,7 +1,5 @@
 from typing import Any, Literal
-from pydantic import BaseModel, Field
-
-# OpenAI Compatible API Request Models
+from pydantic import BaseModel
 
 class OpenAIMessage(BaseModel):
     role: Literal["system", "user", "assistant", "tool"]

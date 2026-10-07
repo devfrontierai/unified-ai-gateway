@@ -1,0 +1,13 @@
+gateway:
+  host: 0.0.0.0
+  port: 8080
+providers:
+  mock_openai:
+    type: mock
+  mock_gemini:
+    type: mock
+models:
+  # The application hardcodes "gpt-4" but we route it to gemini here!
+  gpt-4:
+    provider: mock_gemini
+    model: gemini-1.5-pro

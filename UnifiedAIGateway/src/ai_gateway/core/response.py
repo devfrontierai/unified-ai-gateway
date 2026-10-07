@@ -1,24 +1,22 @@
-from typing import Any, AsyncIterator
+from typing import Any
 from pydantic import BaseModel
-
-class ChatChoice(BaseModel):
-    index: int
-    message: dict[str, Any]
-    finish_reason: str | None = None
 
 class ChatUsage(BaseModel):
     prompt_tokens: int = 0
     completion_tokens: int = 0
     total_tokens: int = 0
 
+class ChatChoice(BaseModel):
+    index: int
+    message: dict[str, Any]
+    finish_reason: str | None = None
+
 class ChatResponse(BaseModel):
-    """Canonical internal response model for chat completions."""
     id: str
     model: str
     choices: list[ChatChoice]
     usage: ChatUsage | None = None
     created: int
-    
     metadata: dict[str, Any] = {}
 
 class ChatChunkChoice(BaseModel):
@@ -27,7 +25,6 @@ class ChatChunkChoice(BaseModel):
     finish_reason: str | None = None
 
 class ChatChunk(BaseModel):
-    """Canonical internal response model for streaming chat chunks."""
     id: str
     model: str
     choices: list[ChatChunkChoice]
@@ -40,7 +37,6 @@ class EmbeddingData(BaseModel):
     embedding: list[float]
 
 class EmbeddingResponse(BaseModel):
-    """Canonical internal response model for embeddings."""
     object: str = "list"
     data: list[EmbeddingData]
     model: str

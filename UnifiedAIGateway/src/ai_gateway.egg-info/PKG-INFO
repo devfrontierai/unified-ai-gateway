@@ -5,6 +5,7 @@ Summary: Provider-Neutral Enterprise AI Gateway
 Author: AI Architect
 Requires-Python: >=3.12
 Description-Content-Type: text/markdown
+License-File: LICENSE
 Requires-Dist: fastapi>=0.110.0
 Requires-Dist: uvicorn[standard]>=0.29.0
 Requires-Dist: pydantic>=2.7.0
@@ -17,30 +18,4 @@ Requires-Dist: pytest>=8.1.1; extra == "dev"
 Requires-Dist: pytest-asyncio>=0.23.6; extra == "dev"
 Requires-Dist: mypy>=1.9.0; extra == "dev"
 Requires-Dist: ruff>=0.3.5; extra == "dev"
-
-# Provider-Neutral Enterprise AI Gateway
-
-An enterprise AI gateway that provides a stable OpenAI-compatible API to applications, while abstracting model providers, routing, governance, cost, audit, security and future capabilities behind that API.
-
-## Core Features
-* OpenAI-compatible API (Applications require zero code changes)
-* Provider abstraction (OpenAI, Anthropic, Gemini, etc.)
-* Routing engine (Static, Weighted, Round Robin, Fallback, etc.)
-* Plugin system (Cost metering, Audit events, Governance hooks)
-* Configuration-driven model registry
-
-## Quick Start
-```bash
-# Clone the repository
-git clone <repository_url>
-cd ai-gateway
-
-# Install dependencies
-pip install -e .
-
-# Copy environment variables
-cp .env.example .env
-
-# Start the gateway
-ai-gateway start --config config.yaml
-```
+Dynamic: license-file

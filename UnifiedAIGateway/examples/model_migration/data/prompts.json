@@ -1,0 +1,4 @@
+[
+    {"role": "user", "content": "Hello, how are you?"},
+    {"role": "user", "content": "Write a python script to reverse a string."}
+]

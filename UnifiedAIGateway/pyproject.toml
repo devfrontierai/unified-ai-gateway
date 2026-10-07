@@ -6,9 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ai-gateway"
 version = "0.1.0"
 description = "Provider-Neutral Enterprise AI Gateway"
-authors = [
-    {name = "AI Architect"}
-]
+authors = [{name = "AI Architect"}]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -22,22 +20,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=8.1.1",
-    "pytest-asyncio>=0.23.6",
-    "mypy>=1.9.0",
-    "ruff>=0.3.5",
-]
+dev = ["pytest>=8.1.1", "pytest-asyncio>=0.23.6", "mypy>=1.9.0", "ruff>=0.3.5"]
 
 [project.scripts]
 ai-gateway = "ai_gateway.server.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.pytest.ini_options]
-asyncio_mode = "auto"
-testpaths = ["tests"]
-
-[tool.ruff]
-line-length = 88

@@ -1,4 +1,4 @@
-README.md
+LICENSE
 pyproject.toml
 src/ai_gateway.egg-info/PKG-INFO
 src/ai_gateway.egg-info/SOURCES.txt
@@ -19,13 +19,13 @@ src/ai_gateway/core/request.py
 src/ai_gateway/core/response.py
 src/ai_gateway/events/models.py
 src/ai_gateway/events/sink.py
+src/ai_gateway/plugins/audit.py
 src/ai_gateway/plugins/base.py
+src/ai_gateway/plugins/cost.py
+src/ai_gateway/plugins/governance.py
 src/ai_gateway/plugins/manager.py
-src/ai_gateway/providers/anthropic.py
 src/ai_gateway/providers/base.py
-src/ai_gateway/providers/gemini.py
 src/ai_gateway/providers/mock.py
-src/ai_gateway/providers/openai.py
 src/ai_gateway/providers/registry.py
 src/ai_gateway/routing/base.py
 src/ai_gateway/routing/engine.py

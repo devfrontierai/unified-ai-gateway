@@ -1,20 +1,16 @@
 from abc import ABC, abstractmethod
-from typing import Any
 import structlog
-
 from ai_gateway.events.models import BaseEvent
 
 logger = structlog.get_logger(__name__)
 
 class EventSink(ABC):
     @abstractmethod
-    async def publish(self, event: BaseEvent):
-        ...
+    async def publish(self, event: BaseEvent): pass
 
 class InMemorySink(EventSink):
     def __init__(self):
         self.events: list[BaseEvent] = []
-        
     async def publish(self, event: BaseEvent):
         self.events.append(event)
 
